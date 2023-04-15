@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hello World</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script src="../scripts/react.development.js"></script>
+<script src="../scripts/react-dom.development.js"></script>
+<script>
+    // 创建 react 元素
+    /*
+        三个参数
+            1. 要创建的标签名，不同于 html 中可用大写可用小写，react 中只能用小写，因为 react 中大写表示组件
+            2. 属性对象 如 {id:'btn', type: 'button'}
+                1. 写入 class 属性时，最好用className 代替 否则 提示 Warning: Invalid DOM property
+                2. 写入事件时 键要使用 驼峰命名 值必须是函数形式 才可以绑定 如 {onClick:()=>alert(123)}
+            3. 填充内容 可以是 任意字符串 或者 其他的 html 元素
+        注意
+            - react 最后 会通过 虚拟 dom 转化为 真是 dom
+            - react 元素一旦创建就无法修改 只能新建元素进行替换 进行替换时 react 只会改动 发生改变的部分
+    */
+    const btn = React.createElement('button', { id: 'btn', type: 'button', className: 'btn', onClick: () => alert('点我干啥') }, '点我一下')
+    // const div = React.createElement('div', {}, '由 React 创建出来的 Div')
+    const div = React.createElement('div', {}, btn)
+    // 创建 根元素 将普通dom元素 转换为相应的 react dom 元素
+    // 只有在设置与 dom 相关的元素的时候 才会用到 react dom 其他 用 react 即可
+    // const root = ReactDOM.render(div, document.getElementById('root')) // 老版本中用法 将弃用
+    const root = ReactDOM.createRoot(document.getElementById('root'))
+    // 将 div 渲染到 root 根元素 中
+    /*
+        - 用来将 react 元素渲染进根元素中
+        - 首次使用会将根元素中所有子元素清空 因为根本是内容替换
+        - 重复进行 root.render() 调用时，React 会将两次的渲染结果进行比较，会确保只修改变化的元素，对 dom 做最小修改
+    */
+    root.render(div)
+</script>
+
+</html>

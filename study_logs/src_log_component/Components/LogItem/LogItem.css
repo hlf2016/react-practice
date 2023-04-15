@@ -1,0 +1,30 @@
+.log-item {
+    display: flex;
+    background: #fcbf49;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin: 16px 0;
+    padding: 5px;
+}
+
+.content {
+    flex: auto;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content>div {
+    padding: 5px 0;
+}
+
+.title {
+    color: #194b49;
+    font-size: 16px;
+}
+
+.time {
+    color: #d62828;
+}

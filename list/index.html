@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>虚拟DOM</title>
+    <script src="../scripts/react.development.js"></script>
+    <script src="../scripts/react-dom.development.js"></script>
+    <script src="../scripts/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+<!-- 为了支持 babel script 需要特殊设置 type="text/babel" -->
+<script type="text/babel">
+    // react 渲染 list 数据
+    /*
+        注意事项
+            - 渲染 list 时 必须要有 key 否则  报错 Warning: Each child in a list should have a unique "key" prop.
+            - list 数据更新 重新 渲染时 
+                - 当不存在 key 时 react 会从外到内 按顺序从上到下依次取相应位置进行对比 只更改变化了的dom元素 相同dom元素位置改变 也会触发变化
+                - 当存在key 时 react 会对比dom元素的key值 若相同key值的dom元素未变化 则不进行更新
+            - 选择 key 值 要尽量选择唯一的值 比如数据的ID 值，当数据顺序不会发生变化时 也可以使用 数据的 索引值 作为 key 否则则不太合适
+            - 列表中 dom 上的 key 在进行代码审查时 是不可见的
+    */
+    let users = ['aaa', 'bbb', 'ccc']
+    const list = <div>
+        <ul>
+            {users.map((user, index) => <li key={index}>{user}</li>)}
+        </ul>
+    </div>
+    const root = ReactDOM.createRoot(document.getElementById('root'))
+    root.render(list)
+</script>
+
+</html>

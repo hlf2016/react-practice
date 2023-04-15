@@ -1,0 +1,10 @@
+.log {
+    background-color: #eae2b7;
+    padding: 20px;
+}
+
+.empty {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #888;
+}

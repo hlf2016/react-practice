@@ -1,0 +1,42 @@
+.log-item {
+    display: flex;
+    background: #fcbf49;
+    margin: 16px 0;
+    padding: 5px;
+}
+
+.content {
+    flex: auto;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content>div {
+    padding: 5px 0;
+}
+
+.title {
+    color: #194b49;
+    font-size: 16px;
+}
+
+.time {
+    color: #d62828;
+}
+
+.remove-btn {
+    margin-right: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.remove-btn:hover {
+    color: #d62828;
+    transform: rotate(1turn);
+}

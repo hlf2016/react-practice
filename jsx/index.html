@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSX</title>
+    <script src="../scripts/react.development.js"></script>
+    <script src="../scripts/react-dom.development.js"></script>
+    <script src="../scripts/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+<!-- 为了支持 babel script 需要特殊设置 type="text/babel" -->
+<script type="text/babel">
+    // react 创建 元素的两种方式
+    // 命令式创建 相对较为繁琐
+    // const btn = React.createElement('button', {}, '按钮')
+
+    // jsx  js扩展语法 需要借助 babel 才可以正常使用
+    // 原理就是 babel 会讲 jsx 语法转化为相应的 React.createElement 语法 
+    // jsx 在执行前 都会被转换成 js 代码
+    /*
+        jsx 注意事项：
+            - jsx 直接写 html 即可 而不是字符串 不需要用引号包裹
+            - jsx 中 html 标签要小写 因为 react 中大写开头的是组件
+            - 每一个 jsx 中 有且只有 一个根标签
+            - jsx 中 html 标签必须正确结束 如果是自结束标签 必须写 /
+            - jsx 中可以用 {} 嵌入表达式
+            - 如果表达式是 空值 布尔值 或者 undefined 将不会显示
+            - jsx 中属性可以直接在标签中设置
+                - class 属性需要使用 className 代替
+                - style 必须使用对象设置 且style 属性需要 使用驼峰命名 如 style={{backgroundColor:'red'}}
+    */
+    const btn = <div>
+        Guess
+        <button>按钮</button>
+    </div>
+
+    const root = ReactDOM.createRoot(document.getElementById('root'))
+    root.render(btn)
+</script>
+
+</html>

@@ -1,0 +1,54 @@
+.log-form {
+    padding: 20px;
+    background-color: #eae2b7;
+    margin-bottom: 50px;
+}
+
+.form-item {
+    display: flex;
+    /* height: 40px; */
+    margin: 10px 0;
+    /* 标签和input会变成上下布局*/
+    /* flex-flow: column; */
+}
+
+.form-item label {
+    width: 50px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.form-item input {
+    height: 40px;
+    flex: 1;
+    padding: 0 10px;
+}
+
+input[type='date'] {
+    position: relative;
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+    position: absolute;
+    right: 0;
+    padding-left: calc(100% - 40px);
+    padding-right: 10px;
+}
+
+.btn-wrapper {
+    display: flex;
+    height: 80px;
+    justify-content: center;
+}
+
+.submit-btn {
+    display: block;
+    width: 60%;
+    height: 40px;
+    background-color: #f0c14b;
+    border: 1px solid #a88734;
+    border-radius: 4px;
+    margin-top: 20px;
+    cursor: pointer;
+}
