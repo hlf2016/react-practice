@@ -1,0 +1,25 @@
+.Counter {
+    display: flex;
+    align-items: center;
+}
+
+.Counter div {
+    width: 40rem;
+    height: 40rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Sub,
+.Add {
+    background-color: #fcbf49;
+    border-radius: 20rem;
+    cursor: pointer;
+
+}
+
+.Sub {
+    background-color: #fff;
+    border: 1px solid #f2f2f2;
+}
