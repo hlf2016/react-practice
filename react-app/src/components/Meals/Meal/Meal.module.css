@@ -15,7 +15,7 @@
 }
 
 .Title {
-    font-size: 16px;
+    font-size: 32rem;
 }
 
 .Desc {
@@ -32,10 +32,10 @@
 
 .Price {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 32rem;
 }
 
 .Price::before {
     content: '¥ ';
-    font-size: 12px;
+    font-size: 24rem;
 }

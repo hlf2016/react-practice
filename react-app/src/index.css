@@ -5,7 +5,7 @@
 body {
   margin: 0;
   /* 给个默认字体大小 不然 默认的字体大小 在 index.js 里设置为 100/750vw 了 太小 */
-  font-size: 12px;
+  font-size: 24rem;
 }
 
 img {

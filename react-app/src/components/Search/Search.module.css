@@ -1,0 +1,45 @@
+.Search {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120rem;
+    border-bottom: 1px solid #f2f2f2;
+    background-color: #fff;
+    z-index: 999;
+}
+
+.SearchBox {
+    position: relative;
+    width: 80%;
+    height: 80rem;
+    display: flex;
+    align-items: center;
+}
+
+.KeywordInput {
+    height: 100%;
+    width: 100%;
+    border: 1px solid #eee;
+    border-radius: 40rem;
+    padding: 0 60rem;
+    font-size: 25rem;
+    color: #666;
+}
+
+.SearchImg {
+    position: absolute;
+    font-size: 30rem;
+    left: 25rem;
+}
+
+/* 修改 placeholder 字体大小和颜色 */
+input::-webkit-input-placeholder {
+    /* placeholder颜色 */
+    color: #aab2bd;
+    /* placeholder字体大小 */
+    font-size: 25rem;
+}

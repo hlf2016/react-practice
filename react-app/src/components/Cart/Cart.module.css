@@ -1,0 +1,61 @@
+.Cart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    height: 80rem;
+    width: 720rem;
+    bottom: 30rem;
+    margin: auto;
+    right: 0;
+    left: 0;
+    background-color: #333;
+    color: #fff;
+    border-radius: 40rem;
+}
+
+.BagWrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.BagImg {
+    width: 80rem;
+}
+
+.TotalAmount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 20rem;
+    margin: auto;
+    background-color: red;
+    height: 40rem;
+    width: 40rem;
+    border-radius: 50%;
+}
+
+.TotalPrice {
+    font-size: 36rem;
+    margin-left: 15rem;
+    font-weight: bold;
+}
+
+.TotalPrice:before {
+    content: '¥ ';
+    font-size: 24rem;
+}
+
+.GoPayBtn {
+    background-color: #fcbf49;
+    border: none;
+    color: #333;
+    padding: 20rem 50rem;
+    border-radius: 50rem;
+    cursor: pointer;
+    font-size: 32rem;
+}
