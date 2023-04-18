@@ -12,6 +12,7 @@
     background-color: #333;
     color: #fff;
     border-radius: 40rem;
+    z-index: 99999;
 }
 
 .BagWrapper {
@@ -58,4 +59,13 @@
     border-radius: 50rem;
     cursor: pointer;
     font-size: 32rem;
+}
+
+.DisabledBtn {
+    background-color: #777;
+    color: #ccc;
+}
+
+.EmptyCart {
+    padding: 0 15rem;
 }

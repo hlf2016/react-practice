@@ -76,22 +76,18 @@ function App() {
     let newCartData = { ...cartData }
     if (isExist) {
       // 如果存在，就更新购物车中的数据
-      // 1.更新商品总数
-      newCartData.totalAmount += 1
-      // 2.更新商品总价
-      newCartData.totalPrice += meal.price
-      // 3.更新商品列表
+      // 更新商品列表
       meal.amount += 1
     } else {
-      // 如果不存在，就添加商品到购物车
-      newCartData.items.push({ ...meal })
-      // 1.更新商品总数
-      newCartData.totalAmount += 1
-      // 2.更新商品总价
-      newCartData.totalPrice += meal.price
-      // 3.更新商品列表
+      // 更新商品列表
       meal.amount = 1
+      // 如果不存在，就添加商品到购物车
+      newCartData.items.push(meal)
     }
+    // 1.更新商品总数
+    newCartData.totalAmount += 1
+    // 2.更新商品总价
+    newCartData.totalPrice += meal.price
     setCartData(newCartData)
   }
 

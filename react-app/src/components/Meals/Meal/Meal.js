@@ -5,12 +5,14 @@ const Meal = (props) => {
     let { title, img, desc, price } = props.meal
     return (
         <div className={classes.Meal}>
-            <div className={classes.ImgBox}>
+            <div className={(props.size && props.size === 'sm') ? classes.ImgBoxSM : classes.ImgBox}>
                 <img className={classes.Img} src={img} alt={title} />
             </div>
-            <div>
+            <div className={classes.Main}>
                 <div className={classes.Title}>{title}</div>
-                <p className={classes.Desc}>{desc}</p>
+                {
+                    props.hiddenDesc ? null : <p className={classes.Desc}>{desc}</p>
+                }
                 <div className={classes.PriceBox}>
                     <span className={classes.Price}>{price}</span>
                     <div><Counter meal={props.meal} /></div>
