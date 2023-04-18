@@ -28,7 +28,7 @@ const Bill = (props) => {
                 </footer>
 
             </div>
-            <ActionBar buttonText="去支付" />
+            <ActionBar buttonText="去支付" totalPriceDesc="合计" />
         </div>
     ), BillRoot)
 }

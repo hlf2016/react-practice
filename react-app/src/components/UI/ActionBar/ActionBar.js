@@ -8,13 +8,17 @@ const ActionBar = (props) => {
     return (
         <div className={classes.Cart}>
             <div className={classes.BagWrapper}>
-                <img src={bag} alt='cart' className={classes.BagImg} />
+                {
+                    props.totalPriceDesc ? <div className={classes.TotalPriceDesc}>{props.totalPriceDesc}</div> : <img src={bag} alt='cart' className={classes.BagImg} />
+                }
 
                 {
                     cartCtx.totalAmount === 0 ? <div className={classes.EmptyCart}>未选购商品</div> :
                         // Fragment 
                         <>
-                            <div className={classes.TotalAmount}>{cartCtx.totalAmount}</div>
+                            {
+                                props.totalPriceDesc ? null : <div className={classes.TotalAmount}>{cartCtx.totalAmount}</div>
+                            }
                             <div className={classes.TotalPrice}>{cartCtx.totalPrice}</div>
                         </>
                 }

@@ -48,7 +48,7 @@
 
 .TotalPrice:before {
     content: '¥ ';
-    font-size: 24rem;
+    font-size: 25rem;
 }
 
 .GoPayBtn {
@@ -68,4 +68,8 @@
 
 .EmptyCart {
     padding: 0 15rem;
+}
+
+.TotalPriceDesc {
+    margin-left: 20rem;
 }
