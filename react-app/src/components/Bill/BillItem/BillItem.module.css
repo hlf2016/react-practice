@@ -1,0 +1,40 @@
+.BillItem {
+    border-bottom: 1px solid #f2f2f2;
+    display: flex;
+}
+
+.ImgBox {
+    width: 180rem;
+}
+
+.Img {
+    width: 100%;
+}
+
+.Desc {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+}
+
+.Title {
+    font-size: 32rem;
+    font-weight: bold;
+}
+
+.PriceBox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Price {
+    font-size: 28rem;
+    font-weight: bold;
+}
+
+.Price:before {
+    content: '¥ ';
+    font-size: 24rem;
+    font-weight: normal;
+}

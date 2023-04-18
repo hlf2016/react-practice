@@ -1,0 +1,74 @@
+.Bill {
+    position: fixed;
+    background-color: #eee;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+}
+
+.Close {
+    font-size: 28rem;
+    margin: 10rem;
+}
+
+.BillBox {
+    background-color: #fff;
+    border-radius: 40rem;
+    margin: 0 10rem;
+    padding: 0 30rem;
+}
+
+.Header {
+    padding: 20rem 0rem;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.Title {
+    font-size: 28rem;
+}
+
+.Meals {
+    max-height: 70vh;
+    overflow: auto;
+}
+
+.Footer {
+    position: relative;
+    height: 120rem;
+    border-top: 1px dashed #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.Footer:before,
+.Footer:after {
+    position: absolute;
+    content: '';
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+    background-color: #eee;
+    top: -10rem;
+}
+
+.Footer:before {
+    left: -40rem;
+}
+
+.Footer:after {
+    right: -40rem;
+}
+
+.TotalPrice {
+    font-size: 30rem;
+    font-weight: bold;
+}
+
+.TotalPrice:before {
+    content: '合计:¥ ';
+    font-size: 24rem;
+    font-weight: normal;
+}
