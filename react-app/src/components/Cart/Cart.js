@@ -3,7 +3,7 @@ import CartContext from '../../store/cart-context'
 import CartDetail from '../CartDetail/CartDetail'
 import Bill from '../Bill/Bill'
 import ActionBar from '../UI/ActionBar/ActionBar'
-import classes from './Cart.module.css'
+// import classes from './Cart.module.css'
 // import bag from '../../assets/bag.png'
 const Cart = () => {
     const cartCtx = useContext(CartContext)
@@ -35,7 +35,7 @@ const Cart = () => {
     }
 
     return (
-        <div onClick={toggleShowCart} className={classes.Cart}>
+        <div onClick={toggleShowCart}>
             {
                 (showCart && cartCtx.totalAmount > 0) ? <CartDetail setShowCart={setShowCart} /> : null
             }

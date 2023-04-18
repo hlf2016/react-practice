@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import CartContext from '../../store/cart-context'
 import BillItem from './BillItem/BillItem';
+import ActionBar from '../UI/ActionBar/ActionBar';
 import { CloseOutlined } from '@ant-design/icons';
 import classes from './Bill.module.css'
 import ReactDOM from 'react-dom'
@@ -27,6 +28,7 @@ const Bill = (props) => {
                 </footer>
 
             </div>
+            <ActionBar buttonText="去支付" />
         </div>
     ), BillRoot)
 }
