@@ -20,7 +20,7 @@ const Cart = () => {
 
     return (
         <div onClick={toggleShowCart} className={classes.Cart}>
-            {showCart && <CartDetail />}
+            {showCart && <CartDetail setShowCart={setShowCart} />}
             <div className={classes.BagWrapper}>
                 <img src={bag} alt='cart' className={classes.BagImg} />
 

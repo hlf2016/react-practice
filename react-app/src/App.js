@@ -115,8 +115,17 @@ function App() {
     setMealsData(newMealsData)
   }
 
+  const clearCart = () => {
+    cartData.items.forEach(item => delete item.amount)
+    setCartData({
+      items: [],
+      totalAmount: 0,
+      totalPrice: 0
+    })
+  }
+
   return (
-    <CartContext.Provider value={{ ...cartData, addItem, removeItem }}>
+    <CartContext.Provider value={{ ...cartData, addItem, removeItem, clearCart }}>
       <div className="App">
         <Search onSearch={searchHandler} />
         <Meals mealsData={mealsData} />

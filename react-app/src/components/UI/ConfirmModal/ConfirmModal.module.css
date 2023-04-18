@@ -1,0 +1,42 @@
+.ConfirmBackdrop {
+    z-index: 99999;
+}
+
+.Confirm {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 300rem;
+    background-color: #fff;
+    width: 75%;
+    border-radius: 40rem;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    justify-content: space-evenly;
+}
+
+.Title {
+    font-size: 36rem;
+}
+
+.BtnBox {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+}
+
+.BtnBox button {
+    padding: 20rem 60rem;
+    border: 1px solid #ccc;
+    border-radius: 40rem;
+    font-size: 24rem;
+}
+
+.OK {
+    background-color: #fcbf49;
+    border: none;
+}
