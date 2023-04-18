@@ -2,8 +2,9 @@ import { useContext, useState } from 'react'
 import CartContext from '../../store/cart-context'
 import CartDetail from '../CartDetail/CartDetail'
 import Bill from '../Bill/Bill'
+import ActionBar from '../UI/ActionBar/ActionBar'
 import classes from './Cart.module.css'
-import bag from '../../assets/bag.png'
+// import bag from '../../assets/bag.png'
 const Cart = () => {
     const cartCtx = useContext(CartContext)
     // 控制 购物车详情 展示
@@ -35,9 +36,12 @@ const Cart = () => {
 
     return (
         <div onClick={toggleShowCart} className={classes.Cart}>
-            {showCart && <CartDetail setShowCart={setShowCart} />}
+            {
+                (showCart && cartCtx.totalAmount > 0) ? <CartDetail setShowCart={setShowCart} /> : null
+            }
             {showBill && <Bill hiddenBill={hiddenBill} />}
-            <div className={classes.BagWrapper}>
+            {/* 原先硬编码的组件 改成 ActionBar 了 */}
+            {/* <div className={classes.BagWrapper}>
                 <img src={bag} alt='cart' className={classes.BagImg} />
 
                 {
@@ -52,7 +56,8 @@ const Cart = () => {
             </div>
             <div onClick={toggleShowBill} className={`${classes.GoPayBtn}  ${cartCtx.totalAmount === 0 ? classes.DisabledBtn : null}`}>
                 去结算
-            </div>
+            </div> */}
+            <ActionBar clickHandler={toggleShowBill} />
         </div>
     )
 }
