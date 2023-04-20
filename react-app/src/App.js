@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useReducer } from 'react'
 import Meals from './components/Meals/Meals';
 import Search from './components/Search/Search';
 import Cart from './components/Cart/Cart';
@@ -54,6 +54,55 @@ const MEALS_DATA = [
   }
 ]
 
+const cartReducer = (state, action) => {
+  const { type, meal } = action
+  let newCartData = { ...state }
+  // 最后一定要对修改后的 state 进行 return 否则下次调用时 会导致 传入的 state 为 undefined
+  switch (type) {
+    case 'ADD':
+      // 判断购物车中是否已经存在该商品
+      const isExist = newCartData.items.find(item => item.id === meal.id)
+      if (isExist) {
+        // 如果存在，就更新购物车中的数据
+        // 更新商品列表
+        meal.amount += 1
+      } else {
+        // 更新商品列表
+        meal.amount = 1
+        // 如果不存在，就添加商品到购物车
+        newCartData.items.push(meal)
+      }
+      // 1.更新商品总数
+      newCartData.totalAmount += 1
+      // 2.更新商品总价
+      newCartData.totalPrice += meal.price
+      return newCartData
+
+    case 'REMOVE':
+      // 如果显示删除按钮 那么就是存在该商品
+      // 1.更新商品总数
+      newCartData.totalAmount -= 1
+      // 2.更新商品总价
+      newCartData.totalPrice -= meal.price
+      // 3.更新商品列表
+      meal.amount -= 1
+      // 如果减了之后数量为0，就从购物车中移除该商品
+      if (meal.amount === 0) {
+        newCartData.items = newCartData.items.filter(item => item.id !== meal.id)
+      }
+      return newCartData
+    case 'CLEAR':
+      newCartData.items.forEach(item => delete item.amount)
+      return {
+        items: [],
+        totalAmount: 0,
+        totalPrice: 0
+      }
+    default:
+      return state
+  }
+}
+
 function App() {
   const [mealsData, setMealsData] = useState(MEALS_DATA)
 
@@ -63,7 +112,17 @@ function App() {
   *   2.商品总数（totalAmount）
   *   3.商品总价（totalPrice）
   * */
-  const [cartData, setCartData] = useState({
+
+  // 使用 React.reducer 简化 App.js 代码
+  const [cartData, cartDispatch] = useReducer(cartReducer, {
+    items: [],
+    totalAmount: 0,
+    totalPrice: 0
+  })
+
+
+  /***********************从useState改为useReducer 暂时注释***************************/
+  /*const [cartData, setCartData] = useState({
     items: [],
     totalAmount: 0,
     totalPrice: 0
@@ -109,12 +168,6 @@ function App() {
 
   }
 
-  const searchHandler = (keyword) => {
-    // 根据关键词搜索商品
-    const newMealsData = MEALS_DATA.filter(meal => meal.title.includes(keyword))
-    setMealsData(newMealsData)
-  }
-
   const clearCart = () => {
     cartData.items.forEach(item => delete item.amount)
     setCartData({
@@ -122,10 +175,16 @@ function App() {
       totalAmount: 0,
       totalPrice: 0
     })
+  }*/
+
+  const searchHandler = (keyword) => {
+    // 根据关键词搜索商品
+    const newMealsData = MEALS_DATA.filter(meal => meal.title.includes(keyword))
+    setMealsData(newMealsData)
   }
 
   return (
-    <CartContext.Provider value={{ ...cartData, addItem, removeItem, clearCart }}>
+    <CartContext.Provider value={{ ...cartData, cartDispatch }}>
       <div className="App">
         <Search onSearch={searchHandler} />
         <Meals mealsData={mealsData} />

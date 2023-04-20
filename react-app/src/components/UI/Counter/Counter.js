@@ -7,12 +7,12 @@ import { MinusOutlined, PlusOutlined } from '@ant-design/icons'
 const Counter = (props) => {
     const cartCtx = useContext(CartContext)
     return (
-        <div className={classes.Counter}>
+        <div className={classes.Counter} >
             {
                 (props.meal.amount && props.meal.amount !== 0) ?
                     // <> </>  React.Fragment 的使用
                     <>
-                        <div onClick={() => cartCtx.removeItem(props.meal)} className={classes.Sub}>
+                        <div onClick={() => cartCtx.cartDispatch({ type: 'REMOVE', meal: props.meal })} className={classes.Sub}>
                             <MinusOutlined />
                             {/* 解决不同字体的 - 号可能导致 位置无法天然居中  改用图标库*/}
                             {/* <span>-</span> */}
@@ -24,7 +24,7 @@ const Counter = (props) => {
                     : null
             }
 
-            <div onClick={() => cartCtx.addItem(props.meal)} className={classes.Add}>
+            <div onClick={() => cartCtx.cartDispatch({ type: 'ADD', meal: props.meal })} className={classes.Add}>
 
                 <PlusOutlined />
                 {/* <span>+</span> */}

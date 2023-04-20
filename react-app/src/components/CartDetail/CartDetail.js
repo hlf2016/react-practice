@@ -19,7 +19,7 @@ const CartDetail = (props) => {
     }
 
     const OKHandler = () => {
-        cartCtx.clearCart()
+        cartCtx.cartDispatch({ type: 'CLEAR' })
         setShowConfirm(false)
         // 关闭 购物车详情
         props.setShowCart(false)
